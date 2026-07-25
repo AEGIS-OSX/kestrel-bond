@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const BOND_TYPES: Array<{ value: string; label: string }> = [
+const BOND_TYPES: Array<{ value: string; label: string }>= [
   { value: "contractor-license", label: "Contractor License Bond" },
   { value: "permit", label: "Permit Bond" },
   { value: "public-works", label: "Public Works Bond" },
@@ -13,7 +13,7 @@ const BOND_TYPES: Array<{ value: string; label: string }> = [
   { value: "maintenance", label: "Maintenance Bond" },
 ];
 
-const STATES: Array<{ value: string; label: string }> = [
+const STATES: Array<{ value: string; label: string }>= [
   { value: "AL", label: "Alabama" },
   { value: "AK", label: "Alaska" },
   { value: "AZ", label: "Arizona" },
@@ -72,7 +72,7 @@ export default function QuoteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent < HTMLFormElement >) => {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise((r) => setTimeout(r, 1200));
@@ -91,7 +91,7 @@ export default function QuoteForm() {
 
         {submitted ? (
           <div className="quote-success">
-            <p>Your quote request has been received. Expect a response within one business day.</p>
+            <p > Your quote request has been received. Expect a response within one business day.</p>
           </div>
         ) : (
           <form className="quote-form" onSubmit={handleSubmit} noValidate>
@@ -217,6 +217,20 @@ export default function QuoteForm() {
           </form>
         )}
       </div>
+      <style>{`
+        .quote-input:focus,
+        .quote-select:focus {
+          border-color: var(--color-amber);
+          box-shadow: 0 0 0 3px rgba(196, 123, 43, 0.15);
+          outline: none;
+        }
+        .quote-input:disabled,
+        .quote-select:disabled,
+        .quote-submit:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      `}</style>
     </section>
   );
 }
