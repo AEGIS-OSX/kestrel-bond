@@ -2,23 +2,18 @@
 
 import { motion } from "framer-motion";
 
-interface BondItem {
-  code: string;
-  name: string;
-}
+const bonds = [
+  { code: "LIC-001", name: "Contractor License Bond" },
+  { code: "PER-002", name: "Permit Bond" },
+  { code: "PUB-003", name: "Public Works Bond" },
+  { code: "SUB-004", name: "Subcontractor Bond" },
+  { code: "BID-005", name: "Bid Bond" },
+  { code: "PAY-006", name: "Payment Bond" },
+  { code: "PER-007", name: "Performance Bond" },
+  { code: "MAI-008", name: "Maintenance Bond" },
+];
 
-export default function Capabilities(): JSX.Element {
-  const bonds: BondItem[] = [
-    { code: "LIC-001", name: "Contractor License Bond" },
-    { code: "PER-002", name: "Permit Bond" },
-    { code: "PUB-003", name: "Public Works Bond" },
-    { code: "SUB-004", name: "Subcontractor Bond" },
-    { code: "BID-005", name: "Bid Bond" },
-    { code: "PAY-006", name: "Payment Bond" },
-    { code: "PER-007", name: "Performance Bond" },
-    { code: "MAI-008", name: "Maintenance Bond" },
-  ];
-
+export default function Capabilities() {
   return (
     <motion.section
       id="capabilities"
