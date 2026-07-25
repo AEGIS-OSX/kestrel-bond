@@ -212,7 +212,7 @@ export default function QuoteForm() {
             </div>
 
             <button type="submit" className="quote-submit" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting…" : "Request a Quote"}
+              {isSubmitting ? "Submitting…" : "Get a Quote"}
             </button>
           </form>
         )}
