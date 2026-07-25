@@ -1,37 +1,37 @@
 {
   "logo": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947782512-logo.png",
+    "alt": "A minimalist vector logo mark for Kestrel Bond featuring a geometric kestrel head merged with a circular seal. It uses the locked palette of Ink #1A1714 and Amber #C47B2B on a Canvas #F4F1EC backgroun",
     "width": 1024,
     "height": 1024
   },
   "hero": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947634363-hero.png",
+    "alt": "A mid-century federal office desk featuring parchment documents and a burnished amber notary seal under warm lamp light. The composition emphasizes institutional trust and physical permanence through ",
     "width": 1920,
     "height": 1080
   },
   "feature_1": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947635082-feature_1.png",
+    "alt": "A high-fidelity keyframe for the first feature slot, depicting a stack of documents in a mid-century institutional setting. The lighting and palette emphasize permanence and trust, moving away from st",
     "width": 800,
     "height": 600
   },
   "feature_2": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947639020-feature_2.png",
+    "alt": "A high-detail close-up of a burnished amber notary seal on warm parchment documents, shot through a vintage steel-framed window. This image reinforces the 'institutional competence' and 'physical perm",
     "width": 800,
     "height": 600
   },
   "feature_3": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947639949-feature_3.png",
+    "alt": "A digital tablet displaying a bond certificate with a burnished amber seal, set against a mid-century federal office backdrop. The image reinforces the 'digital bond issuance' capability through a len",
     "width": 800,
     "height": 600
   },
   "social_proof": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/kestrel-bond/cleo/1784947891286-social_proof.png",
+    "alt": "A macro shot of a brass notary seal embossed into heavy parchment paper. The image uses warm 3200K lighting and a shallow depth of field to emphasize physical permanence and institutional trust, align",
     "width": 1200,
     "height": 800
   }
