@@ -51,7 +51,7 @@ export default function Hero() {
 
           <motion.h1 
             variants={itemVariants}
-            className="hero-headline font-[family-name:var(--font-display)] text-[36px] md:text-[56px] font-semibold leading-[1.1] mb-[24px] overflow-wrap-anywhere min-w-0"
+            className="hero-headline font-[family-name:var(--font-display)] text-[36px] md:text-[56px] font-semibold leading-[1.1] mb-[24px] [overflow-wrap:anywhere] min-w-0"
             style={{ color: "var(--color-ink)" }}
           >
             One-day bond quotes for licensed contractors.
@@ -59,7 +59,7 @@ export default function Hero() {
 
           <motion.p 
             variants={itemVariants}
-            className="hero-sub font-[family-name:var(--font-body)] text-[17px] line-height-[1.65] max-w-[600px] mb-[40px]"
+            className="hero-sub font-[family-name:var(--font-body)] text-[17px] leading-[1.65] max-w-[600px] mb-[40px]"
             style={{ color: "var(--color-steel)" }}
           >
             Kestrel Bond matches your business with A-rated underwriters to secure the surety bonds required for your next project. No credit check to request a quote.
