@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 
-const BOND_TYPES: Array<{ value: string; label: string }>= [
+const BOND_TYPES = [
   { value: "contractor-license", label: "Contractor License Bond" },
-  { value: "permit", label: "Permit Bond" },
-  { value: "public-works", label: "Public Works Bond" },
-  { value: "subcontractor", label: "Subcontractor Bond" },
-  { value: "bid", label: "Bid Bond" },
-  { value: "payment", label: "Payment Bond" },
-  { value: "performance", label: "Performance Bond" },
   { value: "maintenance", label: "Maintenance Bond" },
+  { value: "performance", label: "Performance Bond" },
+  { value: "payment", label: "Payment Bond" },
+  { value: "bid", label: "Bid Bond" },
+  { value: "license-permit", label: "License & Permit Bond" },
+  { value: "fidelity", label: "Fidelity Bond" },
+  { value: "customs", label: "Customs Bond" },
 ];
 
-const STATES: Array<{ value: string; label: string }>= [
+const US_STATES = [
   { value: "AL", label: "Alabama" },
   { value: "AK", label: "Alaska" },
   { value: "AZ", label: "Arizona" },
@@ -66,171 +66,142 @@ const STATES: Array<{ value: string; label: string }>= [
   { value: "WY", label: "Wyoming" },
 ];
 
-const inputBackground = { backgroundColor: "var(--color-canvas)" };
-
 export default function QuoteForm() {
+  const [businessName, setBusinessName] = useState("");
+  const [ein, setEin] = useState("");
+  const [bondType, setBondType] = useState("");
+  const [bondAmount, setBondAmount] = useState("");
+  const [state, setState] = useState("");
+  const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent < HTMLFormElement >) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1200);
   };
 
+  const fieldClass =
+    "w-full rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 disabled:opacity-50";
+
+  if (isSubmitted) {
+    return (
+      <section id="quote">
+        <div>
+          Your quote request has been received. Expect a response within one business day.
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section id="quote" className="quote-section" style={{ backgroundColor: "var(--color-canvas)" }}>
-      <div className="container">
-        <h2 className="quote-heading">Request a Quote</h2>
-        <p className="quote-sub">
-          We&apos;ll match you with an A-rated underwriter and return your quote within one business day. No credit
-          check required.
-        </p>
+    <section id="quote">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="businessName">Business Name</label>
+          <input
+            id="businessName"
+            type="text"
+            value={businessName}
+            onChange={(e) => setBusinessName(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          />
+        </div>
 
-        {submitted ? (
-          <div className="quote-success">
-            <p > Your quote request has been received. Expect a response within one business day.</p>
-          </div>
-        ) : (
-          <form className="quote-form" onSubmit={handleSubmit} noValidate>
-            <div className="field-group">
-              <label htmlFor="businessName" className="field-label">
-                Business Name
-              </label>
-              <input
-                id="businessName"
-                name="businessName"
-                type="text"
-                required
-                placeholder="Acme Construction LLC"
-                className="quote-input"
-                style={inputBackground}
-                disabled={isSubmitting}
-              />
-            </div>
+        <div>
+          <label htmlFor="ein">EIN</label>
+          <input
+            id="ein"
+            type="text"
+            value={ein}
+            onChange={(e) => setEin(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          />
+          <p>
+            Your EIN is used only to verify your contractor license. We do not run a credit check.
+          </p>
+        </div>
 
-            <div className="field-group">
-              <label htmlFor="ein" className="field-label">
-                Employer Identification Number (EIN)
-              </label>
-              <input
-                id="ein"
-                name="ein"
-                type="text"
-                required
-                placeholder="12-3456789"
-                pattern="[0-9]{2}-[0-9]{7}"
-                className="quote-input"
-                style={inputBackground}
-                disabled={isSubmitting}
-              />
-              <span className="field-hint">
-                Your EIN is used only to verify your contractor license. We do not run a credit check.
-              </span>
-            </div>
+        <div>
+          <label htmlFor="bondType">Bond Type</label>
+          <select
+            id="bondType"
+            value={bondType}
+            onChange={(e) => setBondType(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          >
+            <option value="">Select bond type</option>
+            {BOND_TYPES.map((bt) => (
+              <option key={bt.value} value={bt.value}>
+                {bt.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-            <div className="field-group">
-              <label htmlFor="bondType" className="field-label">
-                Bond Type
-              </label>
-              <select
-                id="bondType"
-                name="bondType"
-                required
-                defaultValue=""
-                className="quote-select"
-                style={inputBackground}
-                disabled={isSubmitting}
-              >
-                <option value="" disabled>
-                  Select bond type
-                </option>
-                {BOND_TYPES.map((bondType) => (
-                  <option key={bondType.value} value={bondType.value}>
-                    {bondType.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+        <div>
+          <label htmlFor="bondAmount">Bond Amount</label>
+          <input
+            id="bondAmount"
+            type="text"
+            value={bondAmount}
+            onChange={(e) => setBondAmount(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          />
+        </div>
 
-            <div className="field-group">
-              <label htmlFor="bondAmount" className="field-label">
-                Bond Amount Required
-              </label>
-              <input
-                id="bondAmount"
-                name="bondAmount"
-                type="text"
-                required
-                placeholder="$50,000"
-                className="quote-input"
-                style={inputBackground}
-                disabled={isSubmitting}
-              />
-            </div>
+        <div>
+          <label htmlFor="state">State</label>
+          <select
+            id="state"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          >
+            <option value="">Select state</option>
+            {US_STATES.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-            <div className="field-group">
-              <label htmlFor="state" className="field-label">
-                Project State
-              </label>
-              <select
-                id="state"
-                name="state"
-                required
-                defaultValue=""
-                className="quote-select"
-                style={inputBackground}
-                disabled={isSubmitting}
-              >
-                <option value="" disabled>
-                  Select state
-                </option>
-                {STATES.map((state) => (
-                  <option key={state.value} value={state.value}>
-                    {state.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={isSubmitting}
+            className={fieldClass}
+            required
+          />
+        </div>
 
-            <div className="field-group">
-              <label htmlFor="email" className="field-label">
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="you@company.com"
-                className="quote-input"
-                style={inputBackground}
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <button type="submit" className="quote-submit" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting…" : "Get a Quote"}
-            </button>
-          </form>
-        )}
-      </div>
-      <style>{`
-        .quote-input:focus,
-        .quote-select:focus {
-          border-color: var(--color-amber);
-          box-shadow: 0 0 0 3px rgba(196, 123, 43, 0.15);
-          outline: none;
-        }
-        .quote-input:disabled,
-        .quote-select:disabled,
-        .quote-submit:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-      `}</style>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="disabled:opacity-50"
+        >
+          {isSubmitting ? "Submitting…" : "Request a Quote"}
+        </button>
+      </form>
     </section>
   );
 }
