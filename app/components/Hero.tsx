@@ -81,6 +81,14 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+      <style jsx global>{`
+        @media (prefers-reduced-motion: reduce) {
+          .hero-section * {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
     </motion.section>
   );
 }
