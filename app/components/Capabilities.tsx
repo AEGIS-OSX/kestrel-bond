@@ -4,40 +4,39 @@ import { motion } from "framer-motion";
 import styles from "./Capabilities.module.css";
 
 const bonds = [
-  { code: "PB-001", name: "Performance Bond" },
-  { code: "PB-002", name: "Payment Bond" },
-  { code: "LB-001", name: "License & Permit Bond" },
-  { code: "LB-002", name: "Contractor License Bond" },
-  { code: "CB-001", name: "Court Bond" },
-  { code: "CB-002", name: "Fidelity Bond" },
-  { code: "MB-001", name: "Maintenance Bond" },
-  { code: "SB-001", name: "Subdivision Bond" },
+  { code: "LIC-001", name: "License & Permit Bond" },
+  { code: "LIC-002", name: "Contractor License Bond" },
+  { code: "BID-001", name: "Bid Bond" },
+  { code: "BID-005", name: "Performance Bond" },
+  { code: "MAI-001", name: "Maintenance Bond" },
+  { code: "MAI-008", name: "Supply Bond" },
+  { code: "FID-001", name: "Fidelity Bond" },
+  { code: "FID-002", name: "Employee Dishonesty Bond" },
 ];
 
 export default function Capabilities() {
   return (
     <motion.section
-      className={styles.capabilitiesSection}
-      style={{ backgroundColor: "var(--color-ink)" }}
-      initial={{ opacity: 0, y: 24 }}
+      id="capabilities"
+      className="surface-dark"
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-6">
-        <h2 className={styles.capabilitiesHeading}>Bond Capabilities</h2>
-        <p className={styles.capabilitiesSub}>
-          Performance, payment, and license bonds issued in hours — not weeks. Every bond backed by A-rated underwriters.
-        </p>
-        <div className={styles.bondGrid}>
+      <div className={styles.container}>
+        <h2 className={styles.heading}>Bond Capabilities</h2>
+        <div className={styles.grid}>
           {bonds.map((bond) => (
-            <div key={bond.code} className={styles.bondItem}>
-              <span className={styles.bondCode}>{bond.code}</span>
-              <span className={styles.bondName}>{bond.name}</span>
-              <div className={styles.underwriterRow}>A-Rated Underwriter</div>
+            <div key={bond.code} className={styles.card}>
+              <span className={styles.code}>{bond.code}</span>
+              <span className={styles.name}>{bond.name}</span>
             </div>
           ))}
         </div>
+        <p className={styles.underwriters}>
+          Liberty Mutual · Travelers · CNA · Hartford
+        </p>
       </div>
     </motion.section>
   );
