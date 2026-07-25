@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import styles from "./Capabilities.module.css";
 
 const bonds = [
   { code: "LIC-001", name: "Contractor License Bond" },
@@ -17,26 +18,26 @@ export default function Capabilities() {
   return (
     <motion.section
       id="capabilities"
-      className="surface-dark capabilities-section"
+      className={`${styles.capabilitiesSection} surface-dark`}
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container">
-        <h2 className="capabilities-heading">What we bond.</h2>
-        <p className="capabilities-sub">
+        <h2 className={styles.capabilitiesHeading}>What we bond.</h2>
+        <p className={styles.capabilitiesSub}>
           Kestrel Bond writes surety bonds across all major construction categories. A-rated underwriters only.
         </p>
-        <div className="bond-grid">
+        <div className={styles.bondGrid}>
           {bonds.map((bond) => (
-            <div key={bond.code} className="bond-item">
-              <span className="bond-code">{bond.code}</span>
-              <span className="bond-name">{bond.name}</span>
+            <div key={bond.code} className={styles.bondItem}>
+              <span className={styles.bondCode}>{bond.code}</span>
+              <span className={styles.bondName}>{bond.name}</span>
             </div>
           ))}
         </div>
-        <div className="underwriter-row">Liberty Mutual · Travelers · CNA · Hartford</div>
+        <div className={styles.underwriterRow}>Liberty Mutual · Travelers · CNA · Hartford</div>
       </div>
     </motion.section>
   );
