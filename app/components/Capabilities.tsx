@@ -26,8 +26,7 @@ export default function Capabilities() {
       <div className="container">
         <h2 className="capabilities-heading">What we bond.</h2>
         <p className="capabilities-sub">
-          Kestrel Bond writes surety bonds across all major construction
-          categories. A-rated underwriters only.
+          Kestrel Bond writes surety bonds across all major construction categories. A-rated underwriters only.
         </p>
         <div className="bond-grid">
           {bonds.map((bond) => (
@@ -37,9 +36,7 @@ export default function Capabilities() {
             </div>
           ))}
         </div>
-        <div className="underwriter-row">
-          Liberty Mutual · Travelers · CNA · Hartford
-        </div>
+        <div className="underwriter-row">Liberty Mutual · Travelers · CNA · Hartford</div>
       </div>
     </motion.section>
   );
