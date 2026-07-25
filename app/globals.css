@@ -183,3 +183,114 @@ p, li, blockquote {
     grid-template-columns: 1fr;
   }
 }
+
+.quote-section {
+  padding-block: 96px;
+}
+
+.quote-heading {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin-bottom: 16px;
+}
+
+.quote-sub {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--color-steel);
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 560px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-steel);
+  letter-spacing: 0.04em;
+}
+
+.field-hint {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-steel);
+  margin-top: 4px;
+}
+
+.quote-input,
+.quote-select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-steel);
+  border-radius: var(--radius-input);
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.quote-input:focus,
+.quote-select:focus {
+  border-color: var(--color-amber);
+  box-shadow: 0 0 0 3px oklch(60% 0.12 65 / 0.15);
+}
+
+.quote-input:disabled,
+.quote-select:disabled,
+.quote-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quote-submit {
+  display: inline-block;
+  background-color: var(--color-amber);
+  color: var(--color-canvas);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.quote-submit:hover:not(:disabled) {
+  background-color: var(--color-amber-dark);
+}
+
+.quote-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.quote-success {
+  max-width: 560px;
+  padding: 32px;
+  border: 1px solid var(--color-steel);
+  border-radius: var(--radius-input);
+}
+
+.quote-success p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--color-ink);
+}
